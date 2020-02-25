@@ -4,7 +4,9 @@ from json import loads
 with open("atoms.json", "r") as f:
 	ATOMS = loads(f.read())
 
-def calculate(elemen1, element2):
+def calculate(element1, element2):
+	element1 = element1.lower()
+	element2 = element2.lower()
 	if element1 not in ATOMS or element2 not in ATOMS:
 		return "Check the spelling of the elements."
 	difference = ATOMS[element1] - ATOMS[element2]
