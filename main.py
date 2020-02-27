@@ -42,7 +42,20 @@ def calculate(element1, element2, show_process=False):
 
 def main():
 	root = Tk()
-	root.geometry("300x200")
+	root.geometry("500x500")
+	root.title("By: Diego Perez")
+	mframe = Frame(root, bg="#F2F2F2")
+	mframe.place(relx=0, rely=0, relwidth=1, relheight=1)
+	title = Label(mframe, bg="#F78181",text="Know your bond", font=("Arial", 18), fg="white")
+	title.place(relx=0, rely=0.1, relwidth=1, relheight=0.1)
+	entryshade = Label(mframe, bg="#F78181")
+	entryshade.place(relx=0.15, rely=0.39, relwidth=0.7, relheight=0.07)
+	firstelement = Entry(mframe)
+	firstelement.place(relx=0.2, rely=0.4, relwidth=0.2, relheight=0.05)
+	secondelement = Entry(mframe)
+	secondelement.place(relx=0.6, rely=0.4, relwidth=0.2, relheight=0.05)
+
+
 	root.mainloop()
 
 
