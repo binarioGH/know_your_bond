@@ -13,9 +13,11 @@ def convert(element):
 
 
 def calculate(element1, element2, show_process=False):
+	print("?")
 	element1 = element1.lower().strip()
 	element2 = element2.lower().strip()
-	errcounter = 0
+	if not len(element1) or not len(element2):
+		return ""
 	if element1 not in ATOMS or element2 not in ATOMS:
 		element1 = convert(element1.title())
 		element2 = convert(element2.title())
@@ -54,8 +56,11 @@ def main():
 	firstelement.place(relx=0.2, rely=0.4, relwidth=0.2, relheight=0.05)
 	secondelement = Entry(mframe)
 	secondelement.place(relx=0.6, rely=0.4, relwidth=0.2, relheight=0.05)
-
-
+	answare = Label(mframe, bg="#F2F2F2", text="", font=("Arial", 18))
+	answare.place(relx=0, rely=0.6, relwidth=1,relheight=0.1)
+	check = Button(mframe, text="check", command=lambda: answare.config(text="{}".format(calculate(firstelement.get(), secondelement.get()))))
+	check.place(relx=0.45, rely=0.405, relwidth=0.1, relheight=0.0375)
+	root.bind("<Return>", lambda *args, **kwargs:answare.config(text="{}".format(calculate(firstelement.get(), secondelement.get()))))
 	root.mainloop()
 
 
